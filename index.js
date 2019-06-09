@@ -63,37 +63,39 @@ for(let x in myArray){
   }  
 }
 
-// let sentence = 'craft block argon meter bells brown croon droop';
-// const myArray =  sentence.split(' ');
-// //console.log('hello ' + myArray[1]);
+//```````````````````````````````````````````````````````````````````````````````````
+let sentence = 'craft block argon meter bells brown croon droop';
+const myArray2 =  sentence.split(' ');
+//console.log('hello ' + myArray2[1]);
 
-// function decode(encodedWord) {
-//   const cipher ={
-//     a: 2,
-//     b: 3,
-//     c: 4,
-//     d: 5,  
-//   };
-//   if(encodedWord[0] in cipher){
-//     //console.log(encodedWord[0]);
-//     //console.log(encodedWord[cipher[encodedWord[0]]-1]);
-//     return encodedWord[cipher[encodedWord[0]]-1];
-//   }
-//   else{
-//     //console.log( 'empty string');
-//     return ' ';
-//   }    
-// }
+function decode(encodedWord) {
+  const cipher ={
+    a: 2,
+    b: 3,
+    c: 4,
+    d: 5,  
+  };
+  if(encodedWord[0] in cipher){
+    //console.log(encodedWord[0]);
+    //console.log(encodedWord[cipher[encodedWord[0]]-1]);
+    return encodedWord[cipher[encodedWord[0]]-1];
+  }
+  else{
+    //console.log( 'empty string');
+    return ' ';
+  }    
+}
 
-// function decodeWord(message){
-//   const myArray =  message.split(' ');
-//   let myString = '';
-//   for(let i = 0; i < myArray.length; i++){
-//     myString +=decode(myArray[i]);
-//   }
-//   return myString;
-// }
-// console.log( decodeWord(sentence));
+function decodeWord(message){
+  const myArray2 =  message.split(' ');
+  let myString = '';
+  for(let i = 0; i < myArray2.length; i++){
+    myString +=decode(myArray2[i]);
+  }
+  return myString;
+}
+console.log( decodeWord(sentence));
+//`````````````````````````````````````````````````````````````````````````````
 
 function mammal(name, numEyes) {
   return {
