@@ -54,14 +54,14 @@ for(let i = 0; i < myArray.length; i++){
 }
 //``````````````````````````````````````````````````````````````````
 
-for(let x in myArray){
-  if(myArray[x].hasOwnProperty('boss')){
-    console.log(`${myArray[x].jobTitle} ${myArray[x].name} reports to ${myArray[x].boss}`);
-  }
-  else{
-    console.log(`${myArray[x].jobTitle} ${myArray[x].name} doesn't report to anybody.`);
-  }  
-}
+// for(let x in myArray){
+//   if(myArray[x].hasOwnProperty('boss')){
+//     console.log(`${myArray[x].jobTitle} ${myArray[x].name} reports to ${myArray[x].boss}`);
+//   }
+//   else{
+//     console.log(`${myArray[x].jobTitle} ${myArray[x].name} doesn't report to anybody.`);
+//   }  
+// }
 
 //```````````````````````````````````````````````````````````````````````````````````
 let sentence = 'craft block argon meter bells brown croon droop';
@@ -103,7 +103,7 @@ function mammal(name, numEyes) {
     isWarmblooded: true,
     numEyes: numEyes,
     evolve: function() {
-      console.log("I'm not mutating, I'm evolving.");
+      console.log('I\'m not mutating, I\'m evolving.');
       this.numEyes++;
     },
     explainYourSelf: function() {
@@ -115,8 +115,9 @@ function mammal(name, numEyes) {
   };
 }
 
-function LOTRisforNERDS(nerdName, race, origin, attack, defense) {
+function LOTRisforNERDS(name, nerdName, race, origin, attack, defense) {
   return {
+    name: name,
     nerdName: nerdName,
     race: race,
     origin: origin,
@@ -133,35 +134,34 @@ function LOTRisforNERDS(nerdName, race, origin, attack, defense) {
   };
 }
 
-let characters = [
-  ['Gandalf the White','Wizard', 'Middle Earth',10,6],
-  ['Bilbo Baggins','Hobbit', 'The Shire',2 ,1],
-  ['Frodo Baggins','Hobbit', 'The Shire',3 ,2],
-  ['Aragorn son of Arathorn','Man', 'Dunnedain',6 ,8],
-  ['Legolas','Elf', 'Woodland Realm',8 ,5],
-  ['Arwen Undomiel','Half-Elf', 'Rivendell',15 ,15],
-];
+const Gandalf = LOTRisforNERDS('Gandalf the White','gandalf','Wizard', 'Middle Earth',10,6);
+const Bagging = LOTRisforNERDS('Bilbo Baggins','bilbo ','Hobbit', 'The Shire',2 ,1);
+const Frodo= LOTRisforNERDS('Frodo Baggins','frodo', 'Hobbit', 'The Shire',3 ,2);
+const Arathorn= LOTRisforNERDS('Aragorn son of Arathorn','aragorn','Man', 'Dunnedain',6 ,8);
+const Legolas= LOTRisforNERDS('Legolas','legolas ','Elf', 'Woodland Realm',8 ,5);
+const Undomiel= LOTRisforNERDS('Arwen Undomiel','arwen','Half-Elf', 'Rivendell',15 ,15);
 
-let newCharacters = [];
+let characters = [Gandalf,Bagging,Frodo,Arathorn,Legolas,Undomiel];
 
-for(let attr in characters) {
-  newCharacters.push(LOTRisforNERDS(characters[attr][0], characters[attr][1],
-    characters[attr][2],characters[attr][3],characters[attr][4]));
-}
+// let newCharacters = [];
+// for(let attr in characters) {
+//   newCharacters.push(LOTRisforNERDS(characters[attr][0], characters[attr][1],
+//     characters[attr][2],characters[attr][3],characters[attr][4]));
+// }
 
 function findAragorn() {
-  return newCharacters.find(char => char.nerdName.toLowerCase().includes('aragorn')).describe();
+  return characters.find(char => char.nerdName.toLowerCase().includes('aragorn')).describe();
 }
 
 findAragorn();
 
 function onlyHobbits() {
-  return newCharacters.filter(char => char.race.toLowerCase().includes('hobbit'));
+  return characters.filter(char => char.race.toLowerCase().includes('hobbit'));
 }
 onlyHobbits();
 
 function fivePlusATK() {
-  return newCharacters.filter(char => char.attack >= 5);
+  return characters.filter(char => char.attack >= 5);
 }
 fivePlusATK();
 
