@@ -165,3 +165,42 @@ function fivePlusATK() {
 }
 fivePlusATK();
 
+function equipWeapon(char, weapon) {
+  char.weapon = weapon;
+  char.describe = function(){
+    console.log(`${this.name} is a ${this.race} from ${this.origin} who uses a ${this.weapon}`);
+  };
+}
+equipWeapon(Gandalf,'wizard staff');
+equipWeapon(Bagging,'ring');
+equipWeapon(Frodo,'Barrow Blade');
+equipWeapon(Arathorn,'Anduril');
+equipWeapon(Gandalf,'Bow and Arrow');
+equipWeapon(Undomiel,'Hadhafang');
+
+//`````````````````````````````````````````````````````````````````````````````````````````````````````````````
+
+const HEROES = [
+  { id: 1, name: 'Captain America', squad: 'Avengers' },
+  { id: 2, name: 'Iron Man', squad: 'Avengers' },
+  { id: 3, name: 'Spiderman', squad: 'Avengers' },
+  { id: 4, name: 'Superman', squad: 'Justice League' },
+  { id: 5, name: 'Wonder Woman', squad: 'Justice League' },
+  { id: 6, name: 'Aquaman', squad: 'Justice League' },
+  { id: 7, name: 'Hulk', squad: 'Avengers' },
+];
+
+function findOne(arr, query) {  
+  for (let i = 0; i < arr.length; i++){
+    for (let key in query){
+      if (arr[i][key] === query[key]){
+        return arr[i];
+      }
+      else return null;
+    }
+  }
+}
+console.log(findOne(HEROES, { id: 8 }));
+
+//``````````````````````````````````````````````````````````````````````
+
